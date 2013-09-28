@@ -38,6 +38,11 @@ module.exports = function(grunt) {
 
       // Handle options.
       src += options.punctuation;
+      
+
+
+
+
 
       // Write the destination file.
       grunt.file.write(f.dest, src);

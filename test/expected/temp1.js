@@ -1,0 +1,1 @@
+var TMP = '<div><b>read the html to js</b></div>';
