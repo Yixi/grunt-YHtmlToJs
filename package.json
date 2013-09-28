@@ -1,0 +1,43 @@
+{
+  "name": "YReadHtmlToJs",
+  "description": "read the html block to js string variable",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Yixi/grunt-YHtmlToJs",
+  "author": {
+    "name": "Yixi",
+    "email": "lyh1112@gmail.com",
+    "url": "http://liuyixi.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yixi/grunt-YHtmlToJs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yixi/grunt-YHtmlToJs/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Yixi/grunt-YHtmlToJs/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
