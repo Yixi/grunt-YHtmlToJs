@@ -1,5 +1,5 @@
 {
-  "name": "YReadHtmlToJs",
+  "name": "y-html-2-js",
   "description": "read the html block to js string variable",
   "version": "0.1.0",
   "homepage": "https://github.com/Yixi/grunt-YHtmlToJs",

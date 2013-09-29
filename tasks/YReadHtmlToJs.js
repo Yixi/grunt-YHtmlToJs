@@ -39,8 +39,7 @@ module.exports = function(grunt) {
 
       // Handle options.
 
-      var RE_FLAG = new RegExp("<%=\\s*YHTJ:(.*?)\\s*%>",'g'),
-          RE_BLOCKEND = new RegExp("<!--\\s*endYHTJ\\s*-->");
+      var RE_FLAG = new RegExp("<%=\\s*YHTJ:(.*?)\\s*%>",'g');
       var result = RE_FLAG.exec(src),
           blockReplace,blockPath,blockResult={};
 
