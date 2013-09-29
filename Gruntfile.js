@@ -32,6 +32,7 @@ module.exports = function(grunt) {
     YReadHtmlToJs: {
       default_options: {
         options: {
+            'url':'test/fixtures'
         },
         files: {
           'tmp/temp1.js': ['test/fixtures/temp1.js'],

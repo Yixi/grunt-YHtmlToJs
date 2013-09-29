@@ -10,14 +10,15 @@
 
 module.exports = function(grunt) {
 
+    var Path = require('path');
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('YReadHtmlToJs', 'read the html block to js string variable', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      url:"",
+      separator: ';\n'
     });
 
     // Iterate over all specified file groups.
@@ -33,13 +34,38 @@ module.exports = function(grunt) {
         }
       }).map(function(filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
+              return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(options.separator));
 
       // Handle options.
-      src += options.punctuation;
-      
 
+      var RE_FLAG = new RegExp("<%=\\s*YHTJ:(.*?)\\s*%>",'g'),
+          RE_BLOCKEND = new RegExp("<!--\\s*endYHTJ\\s*-->");
+      var result = RE_FLAG.exec(src),
+          blockReplace,blockPath,blockResult={};
+
+      while(result!=null){
+        blockReplace = result[0];
+        blockPath = result[1];
+        if(blockPath && !blockResult[blockReplace]){
+            var block = blockPath.split(":");
+            var tempPath = Path.join(options.url,block[0]);
+            if(grunt.file.exists(tempPath)){
+                var content = grunt.file.read(tempPath);
+                var reBlockBuild = new RegExp("<!--\\s*YHTJ:"+block[1]+"\\s*-->(.*?)<!--\\s*endYHTJ\\s*-->","m");
+                var blockContent = content.replace(/^\s*|\n/mg,"").match(reBlockBuild);
+                if(blockContent){
+                    blockResult[blockReplace] = blockContent[1];
+                }
+            }
+        }
+        result = RE_FLAG.exec(src);
+      }
+
+      for(var key in blockResult){
+        var re = new RegExp(key,'g');
+        src = src.replace(re,blockResult[key]);
+      }
 
 
 
