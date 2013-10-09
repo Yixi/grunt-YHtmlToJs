@@ -49,7 +49,30 @@ Default value: `;\n`
 
 
 ### Usage Examples
-(todo)
+
+In javascrpt:
+
+``` 
+var HTML_TEMPLATE = '<%= YHTJ:/template/item.html:note %>'
+```
+In `/template/item.html` file:
+
+<pre>
+<!--YHTJ:note-->
+<div class="note">
+	<div class="title">{title}</div>
+</div>
+<!--endYHTJ-->
+</pre>
+
+when run `y-html-2-js` task , will find the block `<%= YHTJ:xxxx:xx %>` of javascript file, then will find the `note` block of `/template/item.html` file.
+
+so will build like this:
+
+```
+var HTML_TEMPLATE = '<div class="note"><div class="title">{title}</div></div>'
+```
+
 
 
 ## Contributing
