@@ -43,6 +43,10 @@ Default value: `''`
 
 set the template HTML base location
 
+#### options.separator
+Type: `String`
+Default value: `;\n`
+
 
 ### Usage Examples
 (todo)
