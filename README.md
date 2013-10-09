@@ -52,12 +52,12 @@ Default value: `;\n`
 
 In javascrpt:
 
-``` 
+```javascript
 var HTML_TEMPLATE = '<%= YHTJ:/template/item.html:note %>'
 ```
 In `/template/item.html` file:
 
-```
+```html
 <!--YHTJ:note-->
 <div class="note">
 	<div class="title">{title}</div>
@@ -69,7 +69,7 @@ when run `y-html-2-js` task , will find the block `<%= YHTJ:xxxx:xx %>` of javas
 
 so will build like this:
 
-```
+```javascript
 var HTML_TEMPLATE = '<div class="note"><div class="title">{title}</div></div>'
 ```
 
